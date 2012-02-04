@@ -1,0 +1,47 @@
+{
+	"name":"sharekit",
+	"fullName":"ShareKit",
+	"version":"0.0.1",
+	"keywords": [
+       "sharing",
+       "social",
+       "share",
+       "facebook",
+       "twitter",
+       "mail"
+   ],
+   "description":"Share content through Facebook, Twitter and Email. Supports Android and iOS.",
+   "joshfire":{
+		"images":{
+ 	    	
+ 	  	},
+ 	  	"devices":["phone","tablet"],
+   		"hooks":["xcodeproj", "startfile"],
+   		"options":{
+			"schema":{
+				"appname":{
+					"type":"string",
+					"title":"App name",
+					"required":true
+				},
+				"appurl":{
+					"type":"string",
+					"title":"App URL",
+					"required":true
+				},
+				"twitterkey":{
+					"type":"string",
+					"title":"Twitter Consumer Key"
+				},
+				"twittersecret":{
+					"type":"string",
+					"title":"Twitter Secret"
+				},
+				"facebookappid":{
+					"type":"string",
+					"title":"Facebook app ID"
+				}
+			}
+		}
+   }
+}
