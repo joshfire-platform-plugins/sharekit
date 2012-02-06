@@ -43,19 +43,19 @@
         if (!Joshfire.factory.plugins.sharekit) {
         Joshfire.factory.plugins.sharekit = new ShareKitPlugin();
 
-        var rot13 = function(str){
+        var rot13 = function(str,n){
           if (!str) return str;
           return str.replace(/[a-zA-Z]/g, function(c){
-            return String.fromCharCode((c <= "Z" ? 90 : 122) >= (c = c.charCodeAt(0) + 14) ? c : c - 26);
+            return String.fromCharCode((c <= "Z" ? 90 : 122) >= (c = c.charCodeAt(0) + n) ? c : c - 26);
           });
         };
 
         var options = OPTIONS;
-        Joshfire.factory.plugins.sharekit.setAppName(rot13(options[rot13("appname")]));
-        Joshfire.factory.plugins.sharekit.setAppURL(rot13(options[rot13("appurl")]));
-        Joshfire.factory.plugins.sharekit.setTwitterConsumerKey(rot13(options[rot13("twitterkey")]));
-        Joshfire.factory.plugins.sharekit.setTwitterSecret(rot13(options[rot13("twittersecret")]));
-        Joshfire.factory.plugins.sharekit.setFacebookAppId(rot13(options[rot13("facebookappid")]));
+        Joshfire.factory.plugins.sharekit.setAppName(rot13(options[rot13("appname",12)],14));
+        Joshfire.factory.plugins.sharekit.setAppURL(rot13(options[rot13("appurl",12)],14));
+        Joshfire.factory.plugins.sharekit.setTwitterConsumerKey(rot13(options[rot13("twitterkey",12)],14));
+        Joshfire.factory.plugins.sharekit.setTwitterSecret(rot13(options[rot13("twittersecret",12)],14));
+        Joshfire.factory.plugins.sharekit.setFacebookAppId(rot13(options[rot13("facebookappid",12)],14));
 
       }
 
