@@ -35,7 +35,7 @@
 				},
 				"twittersecret":{
 					"type":"string",
-					"title":"Twitter Secret"
+					"title":"Twitter Consumer Secret"
 				},
 				"facebookappid":{
 					"type":"string",
