@@ -1,14 +1,14 @@
 module.exports = {
   "xcodeproj":function(runtime,params,callback) {
 
-    runtime.copyFileInXcodeProject("res/PGShareKit.h","Project/Plugins/PGShareKit.h");
-    runtime.copyFileInXcodeProject("res/PGShareKit.m","Project/Plugins/PGShareKit.m");
+    //runtime.copyFileInXcodeProject("res/PGShareKit.h","Project/Plugins/PGShareKit.h");
+    //runtime.copyFileInXcodeProject("res/PGShareKit.m","Project/Plugins/PGShareKit.m");
     runtime.copyFileInXcodeProject("res/ShareKit-1.0","Project/Externals/");
     
     runtime.readPlist("Project/PhoneGap.plist",function(err,data) {
       if (err) return callback(err);
 
-      data["Plugins"]["com.joshfire.sharekit"] = "PGShareKit";
+      data["Plugins"]["com.joshfire.factory.plugins.sharekit"] = "PGShareKit";
 
       runtime.writePlist("Project/PhoneGap.plist",data,function(err) {
         if (err) return callback(err);
@@ -88,13 +88,19 @@ module.exports = {
 
   },
 
-  "startfile":function(runtime, params, callback) {
+  "bootstrap":function(runtime, params, callback) {
     runtime.readFile("res/phonegap-sharekit-1.0.js",function(err, cnt) {
       if (err) return callback(err);
 
+      var rot13 = function(str){
+        if (!str) return str;
+        return str.replace(/[a-zA-Z]/g, function(c){
+          return String.fromCharCode((c <= "Z" ? 90 : 122) >= (c = c.charCodeAt(0) + 12) ? c : c - 26);
+        });
+      };
+
       //TODO set provider ID
-      var startfilecnt = params["content"].replace("</head>","<script type='text/javascript'>"+cnt+"</script></head>");
-      callback(null, startfilecnt);
+      callback(null, params["content"]+cnt.replace(/OPTIONS/g,rot13(JSON.stringify(params.options))));
     });
   }
 };

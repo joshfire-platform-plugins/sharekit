@@ -16,7 +16,7 @@
  	    	
  	  	},
  	  	"devices":["phone","tablet"],
-   		"hooks":["xcodeproj", "startfile"],
+   		"hooks":["xcodeproj", "bootstrap"],
    		"options":{
 			"schema":{
 				"appname":{
