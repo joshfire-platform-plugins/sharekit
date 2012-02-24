@@ -13,8 +13,9 @@
    "description":"Share content through Facebook, Twitter and Email. Supports Android and iOS.",
    "joshfire":{
 		"images":{
- 	    	
- 	  	},
+ 	    	"small":"marketing/image-small.png",
+ 	    	"big":"marketing/image-small.png"
+ 	  	}, 	 
  	  	"devices":["phone","tablet"],
    		"hooks":["xcodeproj", "bootstrap"],
    		"options":{
