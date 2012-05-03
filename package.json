@@ -12,6 +12,7 @@
    ],
    "description":"Share content through Facebook, Twitter and Email. Supports Android and iOS.",
    "joshfire":{
+   		"contactUs": true,
 		"images":{
  	    	"small":"marketing/image-small.png",
  	    	"big":"marketing/image-small.png"
